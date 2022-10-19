@@ -1,0 +1,3 @@
+.env
+dealer-env/
+*.pyc
