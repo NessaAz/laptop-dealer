@@ -7,3 +7,6 @@ class Listing(models.Model):
     used = models.IntegerField()
     price = models.IntegerField()
 
+    def __str__(self):
+        return self.name
+
