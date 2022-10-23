@@ -1,0 +1,15 @@
+{% extends 'listings/base.html' %}
+{% block title %}| create-listing{% endblock title %}
+
+{% block content %} 
+
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">submit</button>
+</form>
+
+{% endblock content %}   
+
