@@ -9,5 +9,15 @@ def listings(request):
     context = {
         'listings': listings,
     }
+    return render(request, 'listings/listings.html',context)
 
-    return render(request, 'listings.html',context)
+
+def listing(request, id)    :
+
+    listing = Listing.objects.get(id=id)
+
+    context = {
+        'listing': listing
+    }
+
+    return render(request, 'listings/listing.html', context)

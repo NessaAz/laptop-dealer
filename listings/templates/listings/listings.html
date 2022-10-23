@@ -1,0 +1,16 @@
+{% extends 'listings/base.html' %}
+
+
+{% block content %}
+
+{% for listing in listings %}
+    <ul style="list-style: none;">
+        <li><a href="listing/{{ listing.id }}">{{  listing }}</a></li>
+    </ul>
+
+{% endfor %}
+
+{% endblock content %}
+
+
+
