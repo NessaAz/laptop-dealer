@@ -30,7 +30,7 @@ def create_listing(request):
     form = ListingForm()
 
     if request.method == 'POST':
-        form = ListingForm(request.POST)
+        form = ListingForm(request.POST, request.FILES)
         if form.is_valid:
             form.save()
         return redirect('/')
@@ -48,8 +48,22 @@ def update_listing(request, id):
     form = ListingForm(instance=listing)#populate the form by passing an instance and equate to listing
 
     if request.method == 'POST':
-        form = ListingForm(request.POST, instance=listing)
+        form = ListingForm(request.POST, instance=listing, files=request.FILES)
         if form.is_valid:
             form.save()
         return redirect('/')
-        
+
+    context = {
+        'form': form
+    }
+    return render(request, 'listings/update_listing.html', context)
+
+
+
+
+def delete_listing(request, id):
+
+    listing = Listing.objects.get(id=id)
+    listing.delete()
+
+    return redirect('/')

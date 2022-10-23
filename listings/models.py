@@ -6,6 +6,7 @@ class Listing(models.Model):
     brand = models.CharField(max_length=150)
     used = models.IntegerField()
     price = models.IntegerField()
+    image = models.ImageField()
 
     def __str__(self):
         return self.name

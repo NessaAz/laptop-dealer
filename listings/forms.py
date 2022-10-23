@@ -13,4 +13,5 @@ class ListingForm(ModelForm):
             'brand',
             'used',
             'price',
+            'image',
         ]
